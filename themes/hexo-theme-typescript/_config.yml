@@ -1,0 +1,59 @@
+# Meta
+description: 这是一个关于js、html5、css3、css、html、jQuery等的博客，来自一个新手！
+keywords: js,html5,css3,css,html,jQuery
+site_desc: Fox Snower
+disqus_shortname: hexo-theme-typescript
+
+# Navigation
+navigation:
+- name: 首页
+  slug: 首页
+  url: /
+- name: 关于
+  slug: 关于
+  url: /
+- name: 目录
+  slug: 目录
+  url: /
+
+
+# Search
+search_enable: true
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.ico
+author_url: http://rakugaki.me
+
+# Less
+less:
+  compress: true
+
+# use url, not username
+social:
+- slug: email
+  url: #mailto:i@artifact.me
+- slug: github
+  url: https://github.com/artchen
+- slug: twitter
+  url: https://twitter.com/otakism
+- slug: feed
+	url: /atom.xml
+- slug: google
+  url: https://plus.google.com/+ArtChenOtakism/posts
+- slug: facebook
+  url: # https://www.facebook.com/zanchoret
+- slug: linkedin
+  url: # https://www.linkedin.com/in/buzun
+- slug: weibo
+  url: http://weibo.com/otakism/
+- slug: tumblr
+  url: # http://artchen.tumblr.com
+- slug: dribbble
+  url: # https://dribbble.com/artchen
+- slug: pinterest
+  url: # https://www.pinterest.com/otakism/
+- slug: instagram
+  url: # https://instagram.com/otakism/
+- slug: behance
+  url: # https://www.behance.net/artchen

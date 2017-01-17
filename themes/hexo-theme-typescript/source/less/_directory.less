@@ -1,0 +1,119 @@
+.directory{
+       width: 220px;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+    transform: translate3d(100%, 0, 0);
+    transition: transform .24s ease;
+}
+ .directory-btn .icon{
+    display: block;
+    font-size: 25px;
+    color: #fff;
+    }
+body.directory-open #directory-menu, 
+body.directory-open .directory-list a{
+    transform: translate3d(0, 0, 0);
+}
+
+/* body.directory-open{
+    width:80%;
+} */
+.directory-btn{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #f59200;
+    top: 50%;
+    margin-top: -25px;
+    right: 100%;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    // border: 1px solid #fff;
+}
+body.directory-open .directory-btn{
+     background: #2d2b08;
+}
+body.directory-open #main .post-list{
+    transform: translate3D(-110px,0,0);
+     transition: all .24s ease;
+     width:60%;
+}
+.directory-list a{
+     width: 100%;
+    display: block;
+    font-size: 85%;
+    color: #f69d1a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transform: translate3d(220px, 0, 0);
+}
+
+.directory-box a:hover{
+    display: block;
+    background-color: rgba(255, 183, 77, 0.26);
+    color: #55b559;
+}
+.my-info{
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 25px;
+    // background: #55b559;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    line-height:1.5;
+}
+.my-info .my-header{
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.my-header span{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: #fff url("../images/header.jpg") no-repeat center;
+    background-size: 100% 100%;
+    border-radius: 10px;
+}
+.directory-box{
+    position: relative;
+}
+.directory-list{
+    width: 247px;
+    position: absolute;
+    top: 235px;
+    height: 390px;
+    padding-right: 27px;
+    overflow: auto;
+    padding: 0 10px;
+    padding-right: 40px;
+}
+
+
+.footer{
+    color: #464646;
+    font-size: 14px;
+    line-height: 1.75em;
+    padding: 0 30px;
+}
+.footer a{
+   color: #f59200;
+}  
+.footer a:hover {
+    color: #f08f00;
+    background: rgba(255,152,0,0.1);
+}

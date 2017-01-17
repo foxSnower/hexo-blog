@@ -1,0 +1,6 @@
+
+  <% if (post.title) { %>
+    <a href="<%- url_for(post.path) %>" title=" <%= post.title %>">
+      <%= post.title %>
+    </a>
+  <% } %>

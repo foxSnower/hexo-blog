@@ -1,0 +1,23 @@
+
+<div class="directory" id="directory-menu">
+    <div class="directory-btn" id="directory-switch">
+        <span class="icon icon-menu"></span>
+        <p>目录</p>
+    </div>
+    <div class="directory-box">
+        <div class="my-info">
+            <div class="my-header">
+                <span></span>
+            </div>
+            <p>毕业于: 桂林电子科技大学</p>
+            <p>职业: web前端工程师</p>
+        </div>
+        <div class="directory-list">
+          <% page.posts.each(function(post){ %>
+        <%- partial('directorylist', {post: post}) %>
+      <% }) %>
+        </div>
+    </div>
+</div>
+
+

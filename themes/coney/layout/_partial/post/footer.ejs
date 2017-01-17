@@ -1,0 +1,21 @@
+<footer class="article-footer clearfix" style="position: relative;">
+<div class="dashang">
+	<div><a href="###">如果觉得不错，赏我一个么么哒吧！</a></div>
+	<div><a href="###">(づ￣ 3￣)づ</a></div>
+	<div class="weixin-box" id="shang">
+		<span class="weixin" title="微信么么哒"></span>
+		<span class="zhifu" title="支付宝么么哒"></span>
+	</div>
+</div>
+
+<%- partial('catetags') %>
+<div class="article-share" id="share">
+<% if(theme.jiathis.enable){ %>
+  <%- partial('jiathis') %>
+<% } else { %>
+  <div data-url="<%- item.permalink %>" data-title="<% if (item.title){ %><%= item.title %> | <% } %><%= config.title %>" data-tsina="<%= theme.author.tsina %>" class="share clearfix">
+  </div>
+<% } %>
+</div>
+
+</footer>
