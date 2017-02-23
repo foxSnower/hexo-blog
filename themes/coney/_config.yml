@@ -1,8 +1,15 @@
 ##### Menu
 menu:
   首页: /
+  小笔记: /categories/note
+  工具: /categories/tool
+  技巧: /categories/skill
+  程序媛生活: /categories/coder
   归档: /archives
   个人档案: /personinfo
+  
+
+  
 
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
@@ -13,11 +20,10 @@ menu:
 
 #### Widgets
 widgets: 
-- category
+- archive
 - tag
 - links
-- rss
-- tagcloud
+
 ## provide six widgets:category,tag,rss,archive,tagcloud,links.
 ## modify links in `/layout/_widget/links.ejs`.
 
@@ -40,6 +46,7 @@ author_img_data: ''
 author_img: img/coney.png ## size:220px*220px.
 weixin_img: img/weixin.jpg
 zhifu_img: img/zhifu.jpg
+menu_img: img/booktags.png
 ## if the picture's format is `.png` or `.jpg`  instead of dataURI,you should set the `dataURI` value to false.
 
 #### Font
@@ -64,16 +71,16 @@ author:
   google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
   weibo:      ## e.g. 436062867 for http://weibo.com/436062867
   twitter:    ## e.g. gengbiaosky for https://twitter.com/yangjiansky
-  github: https://github.com/foxSnower    ## e.g. coneycode for https://github.com/coneycode
+  github: foxSnower    ## e.g. coneycode for https://github.com/coneycode
   facebook:   ## e.g. gengbiao for https://favebook.com/yangjian
   tsina:      ## e.g. 1664838973  Your weibo ID,It will be used in share button.
-  zhihu: https://www.zhihu.com/people/foxsnower/activities    # coneylife, now it is no icon, I have push an issue to Font Awesome.
+  zhihu: foxsnower   # coneylife, now it is no icon, I have push an issue to Font Awesome.
 
 #### Comment
 duoshuo: 
   enable: true  ## duoshuo.com
   short_name: ## e.g. coney,duoshuo short name.
-  id: 6376500959115216000 
+  id: 50615732a834c63c56004257 
 
 #### Share button
 jiathis:

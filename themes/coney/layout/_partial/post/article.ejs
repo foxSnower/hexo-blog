@@ -5,8 +5,11 @@
 		<%- partial('gallery') %>
 		<% if( table&&(item.toc !== false) && theme.toc.article){ %>
 		<div id="toc" class="toc-article">
+            <div class="hide-scroll">
 			<strong class="toc-title"><%= __('文章目录') %></strong>
+
 		<%- toc(item.content) %>
+		</div>
 		</div>
 		<% } %>
 		<%- item.content %>  

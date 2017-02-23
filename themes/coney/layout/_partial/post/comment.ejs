@@ -3,7 +3,7 @@
 	<% if (page.slug){ %>
 	<div class="ds-thread" data-title="<%= page.title %>" data-thread-key="<%= page.slug %>" data-author-key="<%= page.author ? page.author : config.author %>" data-url="<%- config.url %>/post/<%- page.slug %>"></div>
 	<% } else{%>
-	<div class="ds-thread"></div>
+	<div class="ds-thread" data-thread-key="<%= new Date().getTime() %>"></div>
 	<% } %>
 </section>
 <% } %>

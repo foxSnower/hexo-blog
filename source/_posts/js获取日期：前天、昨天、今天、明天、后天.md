@@ -1,5 +1,10 @@
 ---
-title: js获取日期：前天、昨天、今天、明天、后天
+title: Js获取日期：前天、昨天、今天、明天、后天
+keywords: Js 获取日期
+tags: 
+- 日期
+- Js
+categories: skill
 ---
 想不想用最简短的js代码就能获取日期：前天、昨天、今天、明天、后天
 

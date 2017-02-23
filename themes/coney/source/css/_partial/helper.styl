@@ -235,7 +235,8 @@ section.comment
 
 //toc
 .toc-article
-  background color-code
+  background color-section no-repeat url(../img/bg.jpg) right top
+  background-size inherit
   margin 2em 0 0 0.5em
   padding 1em
   strong
@@ -245,6 +246,13 @@ section.comment
   line-height 1em
   font-size 0.8em
   float right
+  top 5%
+  left 71%
+  z-index 2
+  overflow hidden
+  border-radius 20px
+  border 2px solid #ccc
+  transition all .45s
   .toc
     padding 0 
     li
@@ -277,3 +285,10 @@ section.comment
       transition color .3s ease-out
 .active
   color color-theme !important
+
+.hide-scroll
+  max-height 550px
+  min-width 200px
+  position relative
+  right 0
+

@@ -15,7 +15,8 @@ $(document).ready(function(){
   var m = $('#main'),
       a = $('#asidepart'),
       c = $('.closeaside'),
-      o = $('.openaside');
+      o = $('.openaside'),
+      t = $('#toc');
   $(window).resize(function(){
     getSize(); 
     if (myWidth >= 1024) {
@@ -30,6 +31,21 @@ $(document).ready(function(){
       <% } %>  
     }
   });
+
+  function getDivSize(){
+    if(t.height()>=550){
+        t.css('padding','1em 0 1em 0');
+        $('.hide-scroll').css({'right':'-16px','overflow-y':'auto'});
+     }
+  }
+  getDivSize();
+  $(window).scroll(function(){
+    if($(document).scrollTop()>500){
+     t.css({'position':'fixed','left': '71%'});
+    }else if($(document).scrollTop()>=300&&$(document).scrollTop()<=500){ 
+      t.css({'position':'initial','left': '51%'});     
+    }
+   })
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
@@ -107,7 +123,7 @@ $(document).ready(function(){
 });     
 </script>
 <% } %>
-<% if (((page.layout=='post'||page.layout=='page')&&theme.duoshuo.enable && page.comments) || (theme.duoshuo.enable && theme.widgets.indexOf('recent_comments')!==-1 )) { %>
+<% if (((page.layout=='post'||page.layout=='page'||page.layout=='post table')&&theme.duoshuo.enable && page.comments) || (theme.duoshuo.enable && theme.widgets.indexOf('recent_comments')!==-1 )) { %>
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"<%= theme.duoshuo.short_name %>"};
   (function() {
