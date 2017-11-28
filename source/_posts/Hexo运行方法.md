@@ -3,6 +3,7 @@ title: Hexo主题运行笔记
 keywords: Hexo主题 运行笔记
 tags: Hexo
 categories: skill
+date: 2016-03-20
 ---
 
 # clean

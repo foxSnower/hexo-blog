@@ -1,0 +1,576 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
+  
+    <title>Vue-Node-MongoDB完整框架搭建 | FoxSnower</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Fox Snower">
+    
+    <meta name="description" content="这是一个用现代最流行框架搭建的环境，从开发到正式部署，实现全栈开发不再是梦，它以Vue 为前端框架，Node 为后台支持，MongoDB为数据库，，我们跟着以下步骤一步步下来:
+思路首先我们要整理好整个工作流程： 
+
+前后端分离，各自开发。这里前后端分离是这样的：前端用Vue开发静态页面，路由通过V">
+    
+    <meta name="keywords" content="Vue Node MongoDB 完整框架搭建">
+    
+    
+    <link rel="alternate" href="atom.xml" title="FoxSnower" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='f47f44f3906c9f036fee6ed1210d244d';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FoxSnower">FoxSnower</a></h1>
+				<a class="blog-motto">2016年就在这样或那样的琐碎中，被遗忘、被记起，最终走完了全程.   --FoxSnower</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/categories/note">小笔记</a></li>
+					
+						<li><a href="/categories/tool">工具</a></li>
+					
+						<li><a href="/categories/skill">技巧</a></li>
+					
+						<li><a href="/categories/coder">程序媛生活</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/personinfo">个人档案</a></li>
+					
+				</ul>
+             </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/05/25/Vue Node MongoDB三合一完整开发项目/" title="Vue-Node-MongoDB完整框架搭建" itemprop="url">Vue-Node-MongoDB完整框架搭建</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="###" title="Fox Snower">Fox Snower</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-05-24T16:00:00.000Z" itemprop="datePublished">2017-05-25</time>
+    更新日期:<time datetime="2017-05-26T09:37:39.403Z" itemprop="dateModified">2017-05-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+            <div class="hide-scroll">
+			<strong class="toc-title">文章目录</strong>
+
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以登录为例"><span class="toc-number">2.</span> <span class="toc-text">以登录为例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Longin-Vue"><span class="toc-number">3.</span> <span class="toc-text">Longin.Vue</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Node"><span class="toc-number">4.</span> <span class="toc-text">搭建Node</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这里使用的Node框架是Express。安装Express："><span class="toc-number">4.1.</span> <span class="toc-text">这里使用的Node框架是Express。安装Express：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-js"><span class="toc-number">4.1.1.</span> <span class="toc-text">index.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-js"><span class="toc-number">4.1.2.</span> <span class="toc-text">db.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#api-js"><span class="toc-number">4.1.3.</span> <span class="toc-text">api.js</span></a></li></ol></li></ol></li></ol>
+		</div>
+		</div>
+		
+		<p>这是一个用现代最流行框架搭建的环境，从开发到正式部署，实现全栈开发不再是梦，它以Vue 为前端框架，Node 为后台支持，MongoDB为数据库，，我们跟着以下步骤一步步下来:</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>首先我们要整理好整个工作流程： </p>
+<ol>
+<li>前后端分离，各自开发。这里前后端分离是这样的：前端用Vue开发静态页面，路由通过Vue-Router进行，后端用Node仅用于编写API给前端调用获取数据。 </li>
+<li>前端开发时通过Vue-Cli中提供的proxyTable进行代理，由此可跨域调用Node编写的API。 </li>
+<li>前后端各自开发完成，测试无误后，前端通过webpack打包压缩，后端拉取前端打包压缩好的文件即部署完成。</li>
+</ol>
+<h1 id="以登录为例"><a href="#以登录为例" class="headerlink" title="以登录为例"></a>以登录为例</h1><p>安装node</p>
+<blockquote>
+<p>此处不多说，可网上查阅安装过程</p>
+</blockquote>
+<p>安装Vue-Cli </p>
+<pre><code>npm i -g vue-cli
+</code></pre><p>去到你想要放置项目的目录，进行初始化 </p>
+<pre><code>vue init webpack XXX（你想要项目的名字）
+</code></pre><p>按提示一直下一步，完成后按提示 </p>
+<pre><code>cd XXX 
+npm install （这里建议使用淘宝镜像cnpm，不然墙外的东西……） 
+npm run dev 
+</code></pre><blockquote>
+<p>设置镜像加速,在cmd输入<br>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> –global<br>npm config set disturl <a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> –global</p>
+</blockquote>
+<p>如无意外你就会看到下图，证明成功了 </p>
+<p><img src="../../../../images/vue-node-mongodb/vue.png" alt="vue成功返回的图片"></p>
+<p>如果出现一些意外有可能是端口号被占用，解决方法有</p>
+<ul>
+<li>开始—-&gt;运行—-&gt;cmd，或者是window+R组合键，调出命令窗口</li>
+<li>输入命令：netstat -ano，列出所有端口的情况。在列表中我们观察被占用的端口，比如是49157，首先找到它。</li>
+<li>查看被占用端口对应的PID，输入命令：netstat -aon|findstr “49157”，回车，记下最后一位数字，即PID,这里是2720</li>
+<li>我们打开任务管理器，切换到进程选项卡，在PID一列查看2720对应的进程是谁，如果看不到PID这一列</li>
+<li>则我们点击查看—&gt;选择列，将PID(进程标示符)前面的勾打上，点击确定。</li>
+<li>这样我们就看到了PID这一列标识，看一下2720对应的进程是谁，如果没有，我们把下面的显示所有用户的进程前面的勾打上，就可以看到了，映像名称是svchost.exe，描述是，Windows的主进程,与上面命令查看的完全一致。</li>
+</ul>
+<h1 id="Longin-Vue"><a href="#Longin-Vue" class="headerlink" title="Longin.Vue"></a>Longin.Vue</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"inputEmail3"</span> <span class="attr">placeholder</span>=<span class="string">"请输入账号"</span> <span class="attr">v-model</span>=<span class="string">"account"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"inputPassword3"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">v-model</span>=<span class="string">"password"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> @<span class="attr">click</span>=<span class="string">"login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    data() &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            account : <span class="string">''</span>,</div><div class="line">            password : <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    methods:&#123;</div><div class="line">      login() &#123;</div><div class="line">        <span class="comment">// 获取已有账号密码</span></div><div class="line">        <span class="keyword">this</span>.$http.get(<span class="string">'/api/login/getAccount'</span>)</div><div class="line">          .then((response) =&gt; &#123;</div><div class="line">            <span class="comment">// 响应成功回调</span></div><div class="line">            <span class="built_in">console</span>.log(response)</div><div class="line">            <span class="keyword">let</span> params = &#123; </div><div class="line">              account : <span class="keyword">this</span>.account,</div><div class="line">              password : <span class="keyword">this</span>.password</div><div class="line">            &#125;;</div><div class="line">            <span class="comment">// 创建一个账号密码</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.$http.post(<span class="string">'/api/login/createAccount'</span>,params);</div><div class="line">          &#125;)</div><div class="line">          .then((response) =&gt; &#123;</div><div class="line">            <span class="built_in">console</span>.log(response)</div><div class="line">          &#125;)</div><div class="line">          .catch((reject) =&gt; &#123;</div><div class="line">            <span class="built_in">console</span>.log(reject)</div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="搭建Node"><a href="#搭建Node" class="headerlink" title="搭建Node"></a>搭建Node</h1><p>在项目的根目录新建一个叫server的目录，用于放置Node的东西。进入server目录，再新建三个js文件： </p>
+<ul>
+<li>index.js （入口文件） </li>
+<li>db.js （设置数据库相关） </li>
+<li>api.js （编写接口） </li>
+</ul>
+<h2 id="这里使用的Node框架是Express。安装Express："><a href="#这里使用的Node框架是Express。安装Express：" class="headerlink" title="这里使用的Node框架是Express。安装Express："></a>这里使用的Node框架是Express。安装Express：</h2><pre><code>npm install express –save
+</code></pre><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入编写好的api</span></div><div class="line"><span class="keyword">const</span> api = <span class="built_in">require</span>(<span class="string">'./api'</span>); </div><div class="line"><span class="comment">// 引入文件模块</span></div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="comment">// 引入处理路径的模块</span></div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="comment">// 引入处理post数据的模块</span></div><div class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</div><div class="line"><span class="comment">// 引入Express</span></div><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">const</span> app = express();</div><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123;extended: <span class="literal">false</span>&#125;));</div><div class="line">app.use(api);</div><div class="line"><span class="comment">// 访问静态资源文件 这里是访问所有dist目录下的静态资源文件</span></div><div class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'../dist'</span>)))</div><div class="line"><span class="comment">// 因为是单页应用 所有请求都走/dist/index.html</span></div><div class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'../dist/index.html'</span>), <span class="string">'utf-8'</span>)</div><div class="line">    res.send(html)</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 监听8088端口</span></div><div class="line">app.listen(<span class="number">8088</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'success listen…………'</span>);</div></pre></td></tr></table></figure>
+<h3 id="db-js"><a href="#db-js" class="headerlink" title="db.js"></a>db.js</h3><p>这个js文件主要用于配置mongoDB相关东西.我们这里使用mongoose 中间件来连接mongoDB.mongoDB安装完之后，我们需要自己手动去新建一个文件夹用于放置mongoDB的数据。我的mongoDB安装在E盘，所以也在E盘根目录创建一个叫mongo-data的文件夹（名字随便取），进入该文件夹，再新建一个名叫db的文件夹。当我们去启动mongoDB服务时，我们需要指定该路径。如何开启mongoDB服务？进入mongoDB所在目录，再进入它的bin目录，敲这条命令： </p>
+<pre><code>mongod.exe –dbpath e:\mongo-data\db
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Schema、Model、Entity或者Documents的关系请牢记，Schema生成Model，Model创造Entity，Model和Entity都可对数据库操作造成影响，但Model比Entity更具操作性。</span></div><div class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"><span class="comment">// 连接数据库 如果不自己创建 默认test数据库会自动生成</span></div><div class="line">mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</div><div class="line"><span class="comment">// 为这次连接绑定事件</span></div><div class="line"><span class="keyword">const</span> db = mongoose.connection;</div><div class="line">db.once(<span class="string">'error'</span>,() =&gt; <span class="built_in">console</span>.log(<span class="string">'Mongo connection error'</span>));</div><div class="line">db.once(<span class="string">'open'</span>,() =&gt; <span class="built_in">console</span>.log(<span class="string">'Mongo connection successed'</span>));</div><div class="line"><span class="comment">/************** 定义模式loginSchema **************/</span></div><div class="line"><span class="keyword">const</span> loginSchema = mongoose.Schema(&#123;</div><div class="line">    account : <span class="built_in">String</span>,</div><div class="line">    password : <span class="built_in">String</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">/************** 定义模型Model **************/</span></div><div class="line"><span class="keyword">const</span> Models = &#123;</div><div class="line">    Login : mongoose.model(<span class="string">'Login'</span>,loginSchema)</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = Models;</div></pre></td></tr></table></figure>
+<h3 id="api-js"><a href="#api-js" class="headerlink" title="api.js"></a>api.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">const</span> models = <span class="built_in">require</span>(<span class="string">'./db'</span>);</div><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">const</span> router = express.Router();</div><div class="line"><span class="comment">/************** 创建(create) 读取(get) 更新(update) 删除(delete) **************/</span></div><div class="line"><span class="comment">// 创建账号接口</span></div><div class="line">router.post(<span class="string">'/api/login/createAccount'</span>,(req,res) =&gt; &#123;</div><div class="line">    <span class="comment">// 这里的req.body能够使用就在index.js中引入了const bodyParser = require('body-parser')</span></div><div class="line">    <span class="keyword">let</span> newAccount = <span class="keyword">new</span> models.Login(&#123;</div><div class="line">        account : req.body.account,</div><div class="line">        password : req.body.password</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">// 保存数据newAccount数据进mongoDB</span></div><div class="line">    newAccount.save((err,data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">            res.send(err);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            res.send(<span class="string">'createAccount successed'</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 获取已有账号接口</span></div><div class="line">router.get(<span class="string">'/api/login/getAccount'</span>,(req,res) =&gt; &#123;</div><div class="line">    <span class="comment">// 通过模型去查找数据库</span></div><div class="line">    models.Login.find((err,data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">            res.send(err);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            res.send(data);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+<p>至此我们的后端代码就编写好了，进入server目录，敲上<code>node index</code>命令，node就会跑起来，这时在浏览器输入<a href="http://localhost:8088/api/login/getAccount就能访问到这个接口了" target="_blank" rel="external">http://localhost:8088/api/login/getAccount就能访问到这个接口了</a> </p>
+<p>现在我们点击登录按钮去请求接口，当然还是不行的，因为使用npm run dev 进行开发时，其实webpack会启动一个8080的web服务用于我们进行开发，而我们后端是在8088端口的，所以我们肯定请求不到后端的接口。怎么办？跨域问题相信前端都很熟悉，难道我们又要去搞一遍解决这些问题？我们只是想开发的时候能调到后端的接口而已…… </p>
+<p>我们会发现有有一个proxyTable，这就是用来开启一个代理服务从而解决我们这个问题的：Vue-Cli官方描述。<br>于是，我们写成这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">proxyTable: &#123;</div><div class="line">       <span class="string">'/api'</span>: &#123;</div><div class="line">       target: <span class="string">'http://localhost:8088/api/'</span>,</div><div class="line">       changeOrigin: <span class="literal">true</span>,</div><div class="line">       pathRewrite: &#123;</div><div class="line">         <span class="string">'^/api'</span>: <span class="string">''</span></div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>这时，我们在前端接口地址前加上/api，就会指向<a href="http://localhost:8088/api/，于是我们就能访问到后端的接口了！让我们来点击一下登录按钮，会发现接口请求成功了！再去数据库看看！也插入了一条新数据！成功！" target="_blank" rel="external">http://localhost:8088/api/，于是我们就能访问到后端的接口了！让我们来点击一下登录按钮，会发现接口请求成功了！再去数据库看看！也插入了一条新数据！成功！</a> </p>
+<p>npm run build 这就生成了一个dist目录，里面就是打包出来的东西。 </p>
+<p>现在回过头来看server里面的入口文件index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 访问静态资源文件 这里是访问所有dist目录下的静态资源文件</span></div><div class="line">app.use(express.static(path.resolve(__dirname, <span class="string">'../dist'</span>)))</div><div class="line"><span class="comment">// 因为是单页应用 所有请求都走/dist/index.html</span></div><div class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> html = fs.readFileSync(path.resolve(__dirname, <span class="string">'../dist/index.html'</span>), <span class="string">'utf-8'</span>)</div><div class="line">    res.send(html)</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 监听8088端口</span></div><div class="line">app.listen(<span class="number">8088</span>);</div></pre></td></tr></table></figure>
+<p>这里的关键是express.static，利用 Express 托管静态文件。于是我们才能访问到前端打包出来的静态页面index.html。<br>最后，我们在浏览器输入<a href="http://localhost:8088/，就会跳到index.html。" target="_blank" rel="external">http://localhost:8088/，就会跳到index.html。</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix" style="position: relative;">
+<div class="dashang">
+	<div><a href="###">如果觉得不错，赏我一个么么哒吧！</a></div>
+	<div><a href="###">(づ￣ 3￣)づ</a></div>
+	<div class="weixin-box" id="shang">
+		<span class="weixin" title="微信么么哒"></span>
+		<span class="zhifu" title="支付宝么么哒"></span>
+	</div>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Markdown/">Markdown</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/skill/">skill</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2017/05/25/Vue Node MongoDB三合一完整开发项目/" data-title="Vue-Node-MongoDB完整框架搭建 | FoxSnower" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/06/10/HTML移动web标配头部/" title="移动web标配html头部+全身模板">
+  <strong>上一篇</strong><br/>
+  <span>
+  移动web标配html头部+全身模板</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/05/20/CSS常用背景图片定位方法/"  title="CSS常用背景图片定位方法">
+ <strong>下一篇</strong><br/> 
+ <span>CSS常用背景图片定位方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="Vue-Node-MongoDB完整框架搭建" data-thread-key="Vue Node MongoDB三合一完整开发项目" data-author-key="Fox Snower" data-url="http://yoursite.com/post/Vue Node MongoDB三合一完整开发项目"></div>
+	
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+<!-- 
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以登录为例"><span class="toc-number">2.</span> <span class="toc-text">以登录为例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Longin-Vue"><span class="toc-number">3.</span> <span class="toc-text">Longin.Vue</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Node"><span class="toc-number">4.</span> <span class="toc-text">搭建Node</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这里使用的Node框架是Express。安装Express："><span class="toc-number">4.1.</span> <span class="toc-text">这里使用的Node框架是Express。安装Express：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-js"><span class="toc-number">4.1.1.</span> <span class="toc-text">index.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-js"><span class="toc-number">4.1.2.</span> <span class="toc-text">db.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#api-js"><span class="toc-number">4.1.3.</span> <span class="toc-text">api.js</span></a></li></ol></li></ol></li></ol>
+  </div>
+ -->
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		
+		
+		<a href="https://github.com/foxSnower" target="_blank" title="github"></a>
+		
+		
+		
+		<a href="https://zhihu.com/people/foxsnower" target="_blank" title="zhihu"></a>
+		
+	</div>
+</div>
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017 年 09 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017 年 08 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017 年 07 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017 年 06 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">2017 年 05 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2017 年 02 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">2017 年 01 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">2016 年 10 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 08 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">2016 年 04 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016 年 03 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015 年 11 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015 年 05 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">2015 年 03 月</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>4</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Js/" title="Js">Js<sup>9</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Node/" title="Node">Node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Sublime/" title="Sublime">Sublime<sup>2</sup></a></li>
+		
+			<li><a href="/tags/VUE/" title="VUE">VUE<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/weex/" title="weex">weex<sup>1</sup></a></li>
+		
+			<li><a href="/tags/二维码/" title="二维码">二维码<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片/" title="图片">图片<sup>2</sup></a></li>
+		
+			<li><a href="/tags/地图/" title="地图">地图<sup>1</sup></a></li>
+		
+			<li><a href="/tags/微信/" title="微信">微信<sup>1</sup></a></li>
+		
+			<li><a href="/tags/日期/" title="日期">日期<sup>1</sup></a></li>
+		
+			<li><a href="/tags/生活趣事/" title="生活趣事">生活趣事<sup>3</sup></a></li>
+		
+			<li><a href="/tags/自适应/" title="自适应">自适应<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">我的收藏</p>
+    <ul>
+      <li><a href="https://chuhanan.github.io/ " target="_blank" title="Hexo">夏木南生</a></li>
+      <li><a href="https://ltaoo.github.io/" target="_blank" title="coney">ltaoo's web</a></li>
+      <li><a href="https://www.nowcoder.com/ " target="_blank" title="Hexo">牛客网</a></li>
+      <li><a href="http://www.imooc.com/ " target="_blank" title="Hexo">慕课网</a></li>
+      <li><a href="http://www.hubwiz.com/ " target="_blank" title="Hexo">汇智网</a></li>
+      <li><a href="http://www.miaov.com/ " target="_blank" title="Hexo">妙趣课堂</a></li>
+      <li><a href="https://hexo.io/zh-cn/ " target="_blank" title="Hexo">Hexo 文档</a></li>
+      <li><a href="https://mp.weixin.qq.com/wiki/home/index.html " target="_blank" title="Hexo">微信公众平台开发文档</a></li>
+      <li><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" title="coney">React 入门实例教程</a></li>
+      <li><a href="http://es6.ruanyifeng.com/#docs/module " target="_blank" title="Hexo">ECMAScript 6 入门</a></li>
+      <li><a href="http://jqweui.com/ " target="_blank" title="Hexo">jQuery WeUI</a></li>
+      <li><a href="https://segmentfault.com/a/1190000003728094 " target="_blank" title="Hexo">使用git和github管理自己的项目---基础操作学习</a></li>
+      <li><a href="http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html " target="_blank" title="Hexo">给电脑换源 npm 国内镜像 cnpm</a></li>
+      <li><a href="https://www.zhihu.com/question/20070065/answer/79557687 " target="_blank" title="Hexo">怎样使用 GitHub</a></li>
+      <li><a href="https://www.juhe.cn/ " target="_blank" title="Hexo">聚合数据</a></li>
+      <li><a href="https://www.duitang.com/category/?cat=chinoiserie " target="_blank" title="Hexo">堆糖古风</a></li>
+      
+      <li><a href="http://2013.miaov.com/student/ldd/cool.html# " target="_blank" title="Hexo">简历</a></li>
+      <li><a href="https://shop114109558.taobao.com/ " target="_blank" title="Hexo">Cat 妖精时尚坊</a></li>
+      <li><a href="https://github.com/foxSnower" target="_blank" title="Hexo">foxSnower's github</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="Fox Snower">Fox Snower</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside'),
+      t = $('#toc');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  function getDivSize(){
+    if(t.height()>=550){
+        t.css('padding','1em 0 1em 0');
+        $('.hide-scroll').css({'right':'-16px','overflow-y':'auto'});
+     }
+  }
+  getDivSize();
+  $(window).scroll(function(){
+    if($(document).scrollTop()>500){
+     t.css({'position':'fixed','left': '71%'});
+    }else if($(document).scrollTop()>=300&&$(document).scrollTop()<=500){ 
+      t.css({'position':'initial','left': '51%'});     
+    }
+   })
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+

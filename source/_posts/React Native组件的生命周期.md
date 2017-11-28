@@ -3,6 +3,7 @@ title: React Native组件的生命周期
 keywords: React Native 组件 生命周期
 tags: React
 categories: skill
+date: 2016-08-11
 ---
 
 我们通过构造一个简单的列表组件，深入了解组件各环节的运作流程，以下为详细代码：

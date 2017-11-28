@@ -1,5 +1,8 @@
 ---
 title: JavaScript参考手册
+tags: js
+categories: tool
+date: 2017-06-20
 ---
 
 本部分提供完整的 `JavaScript` 参考手册：

@@ -3,6 +3,7 @@ title: 有一种错觉叫我能做到
 keywords: 错觉 有一种错觉叫我能做到 吾皇
 tags: 生活趣事
 categories: coder
+date: 2015-05-15
 ---
 有一种错觉叫我能做到...
 <!-- more -->

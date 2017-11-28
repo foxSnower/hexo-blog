@@ -5,6 +5,7 @@ tags:
 - 自适应
 - HTML
 categories: skill
+date: 2016-04-20
 ---
 "自适应网页设计"的核心，就是CSS3引入的Media Query模块。
 它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。

@@ -7,6 +7,8 @@ categories: note
 
 tags: 
  - HTML
+
+date: 2017-06-10
 ---
 
 # 移动web标配html头部

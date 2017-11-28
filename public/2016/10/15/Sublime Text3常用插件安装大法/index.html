@@ -1,0 +1,551 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
+  
+    <title>Sublime Text 3常用插件安装大法 | FoxSnower</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Fox Snower">
+    
+    <meta name="description" content="安装Package Control的方法如下：点击菜单中的 “View”–“Show Console”（也可通过快捷键 Ctrl + ` 打开，不过可能因与系统其他软件快捷键冲突而打不开）调出 Console。然后把下面的代码粘贴进去后回车即可，需稍微等待一段时间。（以下代码可能会因更新而导致失效，请以官网代码为准。）
+import urllib.request,os,hashlib; h = &amp;apos;df21e130d211cfc94d9b0905775a7c0f&amp;apos; + &amp;apos;1e3d39e33b79698005270310898eea76&amp;apos;; pf = &amp;apos;Package Control.sublime-package&amp;apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;apos;http://packagecontrol.io/&amp;apos; + pf.replace(&amp;apos; &amp;apos;, &amp;apos;%20&amp;apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;apos;Error validating download (got %s instead of %s), please try manual install&amp;apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &amp;apos;wb&amp;apos; ).write(by)
+重启Sublime Text即可。">
+    
+    <meta name="keywords" content="Sublime Text 3 常用插件 安装大法">
+    
+    
+    <link rel="alternate" href="atom.xml" title="FoxSnower" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='f47f44f3906c9f036fee6ed1210d244d';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FoxSnower">FoxSnower</a></h1>
+				<a class="blog-motto">2016年就在这样或那样的琐碎中，被遗忘、被记起，最终走完了全程.   --FoxSnower</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/categories/note">小笔记</a></li>
+					
+						<li><a href="/categories/tool">工具</a></li>
+					
+						<li><a href="/categories/skill">技巧</a></li>
+					
+						<li><a href="/categories/coder">程序媛生活</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/personinfo">个人档案</a></li>
+					
+				</ul>
+             </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/15/Sublime Text3常用插件安装大法/" title="Sublime Text 3常用插件安装大法" itemprop="url">Sublime Text 3常用插件安装大法</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="###" title="Fox Snower">Fox Snower</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-10-14T16:00:00.000Z" itemprop="datePublished">2016-10-15</time>
+    更新日期:<time datetime="2017-11-20T09:18:58.627Z" itemprop="dateModified">2017-11-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+            <div class="hide-scroll">
+			<strong class="toc-title">文章目录</strong>
+
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Package-Control的方法如下："><span class="toc-number">1.</span> <span class="toc-text">安装Package Control的方法如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Emmet"><span class="toc-number">2.</span> <span class="toc-text">1. Emmet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HTML-CSS-JS-Prettify"><span class="toc-number">3.</span> <span class="toc-text">2. HTML-CSS-JS Prettify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Sublime​Code​Intel"><span class="toc-number">4.</span> <span class="toc-text">3. Sublime​Code​Intel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-AutoFileName"><span class="toc-number">5.</span> <span class="toc-text">4. AutoFileName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-jQuery"><span class="toc-number">6.</span> <span class="toc-text">5. jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-DocBlockr"><span class="toc-number">7.</span> <span class="toc-text">6. DocBlockr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-BracketHighlighter"><span class="toc-number">8.</span> <span class="toc-text">7. BracketHighlighter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-设置sublime-text-3-里修改扩展名对应的文件类型？"><span class="toc-number">9.</span> <span class="toc-text">8. 设置sublime text 3 里修改扩展名对应的文件类型？</span></a></li></ol>
+		</div>
+		</div>
+		
+		<h3 id="安装Package-Control的方法如下："><a href="#安装Package-Control的方法如下：" class="headerlink" title="安装Package Control的方法如下："></a>安装Package Control的方法如下：</h3><p>点击菜单中的 “View”–“Show Console”（也可通过快捷键 Ctrl + ` 打开，不过可能因与系统其他软件快捷键冲突而打不开）调出 Console。然后把下面的代码粘贴进去后回车即可，需稍微等待一段时间。（以下代码可能会因更新而导致失效，请以<a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">官网代码</a>为准。）</p>
+<pre><code>import urllib.request,os,hashlib; h = &apos;df21e130d211cfc94d9b0905775a7c0f&apos; + &apos;1e3d39e33b79698005270310898eea76&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)
+</code></pre><p>重启Sublime Text即可。</p>
+<a id="more"></a>
+<h3 id="1-Emmet"><a href="#1-Emmet" class="headerlink" title="1. Emmet"></a>1. Emmet</h3><p>Emmet的前身是大名鼎鼎的Zen coding，如果你从事Web前端开发的话，对该插件一定不会陌生。它使用仿CSS选择器的语法来生成代码，大大提高了HTML/CSS代码编写的速度。</p>
+<pre><code>ul&gt;li.item$*3
+</code></pre><p>按 <code>ctrl+e</code> 或<code>tab</code> 键，自动生成以下代码，快捷方便，是你必备安装的插件之一。</p>
+<pre><code>&lt;ul&gt;
+&lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;
+&lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;
+&lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>附：<a href="http://docs.emmet.io/" target="_blank" rel="external">Emmet使用文档</a>.</p>
+<h3 id="2-HTML-CSS-JS-Prettify"><a href="#2-HTML-CSS-JS-Prettify" class="headerlink" title="2. HTML-CSS-JS Prettify"></a>2. HTML-CSS-JS Prettify</h3><p>从名字中就可以看出，这是一款美化 HTML 、CSS、JS及Json代码的插件。需要注意的是，必须先安装 Node.js（最好使用默认安装路径，否则安装完插件后还需修改配置文件）。</p>
+<p>按 <code>Ctrl+Shift+P</code> 或<code>Ctrl+Shift+H</code>或者 <code>右键–“HTML/CSS/JS Prettify”–“Prettify Code”</code>键，快捷方便，是你美化代码的插件。</p>
+<h3 id="3-Sublime​Code​Intel"><a href="#3-Sublime​Code​Intel" class="headerlink" title="3. Sublime​Code​Intel"></a>3. Sublime​Code​Intel</h3><p>支持所有 Komode Editor 支持的代码语言，如：JavaScript, Mason, XBL, XUL, RHTML, SCSS, Python, HTML, Ruby, Python3, XML, Sass, XSLT, Django, HTML5, Perl, CSS, Twig, Less, Smarty, Node.js, Tcl, TemplateToolkit, PHP等。</p>
+<p>提供以下功能：</p>
+<ul>
+<li>打开并跳转到函数/类等的符号定义位置</li>
+<li>实时显示模块/符号的自动补全功能</li>
+<li>在状态栏显示当前函数的相关信息</li>
+</ul>
+<p>跳转到定义位置（<code>Alt+Click</code> 或 <code>Control+Windows+Alt+Up</code>）、返回（<code>Control+Windows+Alt+Left</code>）</p>
+<h3 id="4-AutoFileName"><a href="#4-AutoFileName" class="headerlink" title="4. AutoFileName"></a>4. AutoFileName</h3><p>一款在 Sublime Text 中可以自动补全文件路径及名称的插件。没有这个插件之前，如果我们要输入文件的路径，就需要凭自己的记忆来输，但是你能确保记得正确吗？能否记得图片是 jpg 还是 png 吗？想更快的输入文件名吗？那么，你肯定需要这款插件！</p>
+<p>调用方法<br>        <code>&lt;img src=&quot;../&quot; /&gt;</code></p>
+<h3 id="5-jQuery"><a href="#5-jQuery" class="headerlink" title="5. jQuery"></a>5. jQuery</h3><p>一款自动补全 jQuery 函数的插件，带有语法高亮，并且包含几乎所有的 jQuery 方法。</p>
+<h3 id="6-DocBlockr"><a href="#6-DocBlockr" class="headerlink" title="6. DocBlockr"></a>6. DocBlockr</h3><p>DocBlockr 是一款 Sublime Text 2 &amp; 3 都可以使用的代码快注释插件。支持的语言有：JavaScript (including ES6), PHP, ActionScript, Haxe,CoffeeScript, TypeScript, Java, Groovy, Objective C, C, C++ and Rust.</p>
+<p>调用方法：输入 <code>/**</code> 后按 <code>Enter</code> 或者 <code>Tab</code></p>
+<h3 id="7-BracketHighlighter"><a href="#7-BracketHighlighter" class="headerlink" title="7. BracketHighlighter"></a>7. BracketHighlighter</h3><p>BracketHighlighter 是一款Sublime下匹配标签高亮的小插件，可以把匹配到的如 {}、()、”、””等对应的符号或者标签高亮显示。</p>
+<p>调用方法：选中标签即可显示</p>
+<h3 id="8-设置sublime-text-3-里修改扩展名对应的文件类型？"><a href="#8-设置sublime-text-3-里修改扩展名对应的文件类型？" class="headerlink" title="8. 设置sublime text 3 里修改扩展名对应的文件类型？"></a>8. 设置sublime text 3 里修改扩展名对应的文件类型？</h3><p>打开任意一个 x 文件，View -&gt; Syntax -&gt; Open all with current extension as</p>
+  
+	</div>
+		<footer class="article-footer clearfix" style="position: relative;">
+<div class="dashang">
+	<div><a href="###">如果觉得不错，赏我一个么么哒吧！</a></div>
+	<div><a href="###">(づ￣ 3￣)づ</a></div>
+	<div class="weixin-box" id="shang">
+		<span class="weixin" title="微信么么哒"></span>
+		<span class="zhifu" title="支付宝么么哒"></span>
+	</div>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Sublime/">Sublime</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/tool/">tool</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/10/15/Sublime Text3常用插件安装大法/" data-title="Sublime Text 3常用插件安装大法 | FoxSnower" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/02/Js长按事件/" title="长按事件">
+  <strong>上一篇</strong><br/>
+  <span>
+  长按事件</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/10/14/Sublime Text创建一个JavaScript控制台/"  title="在Sublime Text创建一个JavaScript控制台">
+ <strong>下一篇</strong><br/> 
+ <span>在Sublime Text创建一个JavaScript控制台
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="Sublime Text 3常用插件安装大法" data-thread-key="Sublime Text3常用插件安装大法" data-author-key="Fox Snower" data-url="http://yoursite.com/post/Sublime Text3常用插件安装大法"></div>
+	
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+<!-- 
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Package-Control的方法如下："><span class="toc-number">1.</span> <span class="toc-text">安装Package Control的方法如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Emmet"><span class="toc-number">2.</span> <span class="toc-text">1. Emmet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HTML-CSS-JS-Prettify"><span class="toc-number">3.</span> <span class="toc-text">2. HTML-CSS-JS Prettify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Sublime​Code​Intel"><span class="toc-number">4.</span> <span class="toc-text">3. Sublime​Code​Intel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-AutoFileName"><span class="toc-number">5.</span> <span class="toc-text">4. AutoFileName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-jQuery"><span class="toc-number">6.</span> <span class="toc-text">5. jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-DocBlockr"><span class="toc-number">7.</span> <span class="toc-text">6. DocBlockr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-BracketHighlighter"><span class="toc-number">8.</span> <span class="toc-text">7. BracketHighlighter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-设置sublime-text-3-里修改扩展名对应的文件类型？"><span class="toc-number">9.</span> <span class="toc-text">8. 设置sublime text 3 里修改扩展名对应的文件类型？</span></a></li></ol>
+  </div>
+ -->
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		
+		
+		<a href="https://github.com/foxSnower" target="_blank" title="github"></a>
+		
+		
+		
+		<a href="https://zhihu.com/people/foxsnower" target="_blank" title="zhihu"></a>
+		
+	</div>
+</div>
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017 年 09 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017 年 08 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017 年 07 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017 年 06 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">2017 年 05 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2017 年 02 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">2017 年 01 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">2016 年 10 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 08 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">2016 年 04 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016 年 03 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015 年 11 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015 年 05 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">2015 年 03 月</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>4</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Js/" title="Js">Js<sup>9</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Node/" title="Node">Node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Sublime/" title="Sublime">Sublime<sup>2</sup></a></li>
+		
+			<li><a href="/tags/VUE/" title="VUE">VUE<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/weex/" title="weex">weex<sup>1</sup></a></li>
+		
+			<li><a href="/tags/二维码/" title="二维码">二维码<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片/" title="图片">图片<sup>2</sup></a></li>
+		
+			<li><a href="/tags/地图/" title="地图">地图<sup>1</sup></a></li>
+		
+			<li><a href="/tags/微信/" title="微信">微信<sup>1</sup></a></li>
+		
+			<li><a href="/tags/日期/" title="日期">日期<sup>1</sup></a></li>
+		
+			<li><a href="/tags/生活趣事/" title="生活趣事">生活趣事<sup>3</sup></a></li>
+		
+			<li><a href="/tags/自适应/" title="自适应">自适应<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">我的收藏</p>
+    <ul>
+      <li><a href="https://chuhanan.github.io/ " target="_blank" title="Hexo">夏木南生</a></li>
+      <li><a href="https://ltaoo.github.io/" target="_blank" title="coney">ltaoo's web</a></li>
+      <li><a href="https://www.nowcoder.com/ " target="_blank" title="Hexo">牛客网</a></li>
+      <li><a href="http://www.imooc.com/ " target="_blank" title="Hexo">慕课网</a></li>
+      <li><a href="http://www.hubwiz.com/ " target="_blank" title="Hexo">汇智网</a></li>
+      <li><a href="http://www.miaov.com/ " target="_blank" title="Hexo">妙趣课堂</a></li>
+      <li><a href="https://hexo.io/zh-cn/ " target="_blank" title="Hexo">Hexo 文档</a></li>
+      <li><a href="https://mp.weixin.qq.com/wiki/home/index.html " target="_blank" title="Hexo">微信公众平台开发文档</a></li>
+      <li><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" title="coney">React 入门实例教程</a></li>
+      <li><a href="http://es6.ruanyifeng.com/#docs/module " target="_blank" title="Hexo">ECMAScript 6 入门</a></li>
+      <li><a href="http://jqweui.com/ " target="_blank" title="Hexo">jQuery WeUI</a></li>
+      <li><a href="https://segmentfault.com/a/1190000003728094 " target="_blank" title="Hexo">使用git和github管理自己的项目---基础操作学习</a></li>
+      <li><a href="http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html " target="_blank" title="Hexo">给电脑换源 npm 国内镜像 cnpm</a></li>
+      <li><a href="https://www.zhihu.com/question/20070065/answer/79557687 " target="_blank" title="Hexo">怎样使用 GitHub</a></li>
+      <li><a href="https://www.juhe.cn/ " target="_blank" title="Hexo">聚合数据</a></li>
+      <li><a href="https://www.duitang.com/category/?cat=chinoiserie " target="_blank" title="Hexo">堆糖古风</a></li>
+      
+      <li><a href="http://2013.miaov.com/student/ldd/cool.html# " target="_blank" title="Hexo">简历</a></li>
+      <li><a href="https://shop114109558.taobao.com/ " target="_blank" title="Hexo">Cat 妖精时尚坊</a></li>
+      <li><a href="https://github.com/foxSnower" target="_blank" title="Hexo">foxSnower's github</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="Fox Snower">Fox Snower</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside'),
+      t = $('#toc');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  function getDivSize(){
+    if(t.height()>=550){
+        t.css('padding','1em 0 1em 0');
+        $('.hide-scroll').css({'right':'-16px','overflow-y':'auto'});
+     }
+  }
+  getDivSize();
+  $(window).scroll(function(){
+    if($(document).scrollTop()>500){
+     t.css({'position':'fixed','left': '71%'});
+    }else if($(document).scrollTop()>=300&&$(document).scrollTop()<=500){ 
+      t.css({'position':'initial','left': '51%'});     
+    }
+   })
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+

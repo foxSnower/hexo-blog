@@ -3,6 +3,7 @@ title: 在Sublime Text创建一个JavaScript控制台
 keywords: Sublime Text JavaScript 控制台 调试脚本 Node.js
 categories: tool
 tags: Sublime
+date: 2016-10-14
 ---
 
 

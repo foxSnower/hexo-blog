@@ -3,6 +3,7 @@ title: Markdown语法简略说明(简体中文版)
 keywords: Markdown 语法 常用语法 Markdown写表格
 tags: Markdown
 categories: tool
+date: 2017-02-10
 ---
 
 Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像*强调*。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。

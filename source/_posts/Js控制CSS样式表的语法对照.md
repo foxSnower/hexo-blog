@@ -3,7 +3,9 @@ title: JS 控制CSS样式表的语法对照
 keywords: Js 控制CSS样式 语法对照
 tags: Js
 categories: skill
+date: 2017-02-10
 ---
+
 福利：JavaScript获取demo节点
 
     var ID=document.getElementById("myId");

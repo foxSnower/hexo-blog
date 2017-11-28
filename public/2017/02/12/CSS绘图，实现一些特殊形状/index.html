@@ -1,0 +1,777 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
+  
+    <title>CSS绘图，实现一些特殊形状 | FoxSnower</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Fox Snower">
+    
+    <meta name="description" content="这是一件神奇的事，不信？
+贴代码试试…
+&amp;lt;!DOCTYPE HTML&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset=">
+    
+    <meta name="keywords" content="CSS绘图 特殊形状 神奇">
+    
+    
+    <link rel="alternate" href="atom.xml" title="FoxSnower" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='f47f44f3906c9f036fee6ed1210d244d';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="FoxSnower">FoxSnower</a></h1>
+				<a class="blog-motto">2016年就在这样或那样的琐碎中，被遗忘、被记起，最终走完了全程.   --FoxSnower</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/categories/note">小笔记</a></li>
+					
+						<li><a href="/categories/tool">工具</a></li>
+					
+						<li><a href="/categories/skill">技巧</a></li>
+					
+						<li><a href="/categories/coder">程序媛生活</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/personinfo">个人档案</a></li>
+					
+				</ul>
+             </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/12/CSS绘图，实现一些特殊形状/" title="CSS绘图，实现一些特殊形状" itemprop="url">CSS绘图，实现一些特殊形状</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="###" title="Fox Snower">Fox Snower</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-02-11T16:00:00.000Z" itemprop="datePublished">2017-02-12</time>
+    更新日期:<time datetime="2017-05-25T02:20:39.592Z" itemprop="dateModified">2017-05-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+            <div class="hide-scroll">
+			<strong class="toc-title">文章目录</strong>
+
+		
+		</div>
+		</div>
+		
+		<p>这是一件神奇的事，不信？</p>
+<p>贴代码试试…</p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;前端开发,CSS,HTML,XHTML,JS&quot;/&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;专注前端技术博客&quot;/&gt;
+    &lt;title&gt;WEB前端开发 | 闪亮于WEB前端的彩虹&lt;/title&gt;
+    &lt;title&gt;测试&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        - {
+            margin:0;
+            padding:0;
+            border:0;
+        }
+        .wrap {
+            position:absolute;
+        }
+        .arrow {
+            position:relative;
+            width:0;
+            height:0;
+            border-top:9px solid transparent;
+            border-right:9px solid #000;
+            -webkit-transform:rotate(10deg);
+            -moz-transform:rotate(10deg);
+            -ms-transform:rotate(10deg);
+            -o-transform:rotate(10deg);
+        }
+        .arrow:after {
+            content:&quot;&quot;;
+            position:absolute;
+            border:0 solid transparent;
+            border-top:3px solid #000;
+            border-radius:20px 0 0 0;
+            top:-12px;
+            left:-9px;
+            width:12px;
+            height:12px;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+        }
+        .star-six {
+            width:0;
+            height:0;
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-bottom:100px solid #9C3;
+            position:relative;
+        }
+        .star-six:after {
+            width:0;
+            height:0;
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-top:100px solid #9C3;
+            position:absolute;
+            content:&quot;&quot;;
+            top:30px;
+            left:-50px;
+        }
+        .star-five {
+            margin:50px 0;
+            position:relative;
+            display:block;
+            color:#06C;
+            width:0px;
+            height:0px;
+            border-right:100px solid transparent;
+            border-bottom:70px solid #06C;
+            border-left:100px solid transparent;
+            -moz-transform:rotate(35deg);
+            -webkit-transform:rotate(35deg);
+            -ms-transform:rotate(35deg);
+            -o-transform:rotate(35deg);
+        }
+        .star-five:before {
+            border-bottom:80px solid #06C;
+            border-left:30px solid transparent;
+            border-right:30px solid transparent;
+            position:absolute;
+            height:0;
+            width:0;
+            top:-45px;
+            left:-65px;
+            display:block;
+            content:&apos;&apos;;
+            -webkit-transform:rotate(-35deg);
+            -moz-transform:rotate(-35deg);
+            -ms-transform:rotate(-35deg);
+            -o-transform:rotate(-35deg);
+        }
+        .star-five:after {
+            position:absolute;
+            display:block;
+            color:#06C;
+            top:3px;
+            left:-105px;
+            width:0px;
+            height:0px;
+            border-right:100px solid transparent;
+            border-bottom:70px solid #06C;
+            border-left:100px solid transparent;
+            -webkit-transform:rotate(-70deg);
+            -moz-transform:rotate(-70deg);
+            -ms-transform:rotate(-70deg);
+            -o-transform:rotate(-70deg);
+            content:&apos;&apos;;
+        }
+        .heart {
+            position:relative;
+            width:100px;
+            height:90px;
+        }
+        .heart:before,.heart:after {
+            position:absolute;
+            content:&quot;&quot;;
+            left:50px;
+            top:0;
+            width:50px;
+            height:80px;
+            background:red;
+            -moz-border-radius:50px 50px 0 0;
+            border-radius:50px 50px 0 0;
+            -webkit-transform:rotate(-45deg);
+            -moz-transform:rotate(-45deg);
+            -ms-transform:rotate(-45deg);
+            -o-transform:rotate(-45deg);
+            transform:rotate(-45deg);
+            -webkit-transform-origin:0 100%;
+            -moz-transform-origin:0 100%;
+            -ms-transform-origin:0 100%;
+            -o-transform-origin:0 100%;
+            transform-origin:0 100%;
+        }
+        .heart:after {
+            left:0;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+            transform:rotate(45deg);
+            -webkit-transform-origin:100% 100%;
+            -moz-transform-origin:100% 100%;
+            -ms-transform-origin:100% 100%;
+            -o-transform-origin:100% 100%;
+            transform-origin:100% 100%;
+        }
+        .infinity {
+            position:relative;
+            width:212px;
+            height:100px;
+        }
+        .infinity:before,.infinity:after {
+            content:&quot;&quot;;
+            position:absolute;
+            top:0;
+            left:0;
+            width:60px;
+            height:60px;
+            border:20px solid #F3C;
+            -moz-border-radius:50px 50px 0 50px;
+            border-radius:50px 50px 0 50px;
+            -webkit-transform:rotate(-45deg);
+            -moz-transform:rotate(-45deg);
+            -ms-transform:rotate(-45deg);
+            -o-transform:rotate(-45deg);
+            transform:rotate(-45deg);
+        }
+        .infinity:after {
+            left:auto;
+            right:0;
+            -moz-border-radius:50px 50px 50px 0;
+            border-radius:50px 50px 50px 0;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+            transform:rotate(45deg);
+        }
+        .pacman {
+            width:0px;
+            height:0px;
+            border-right:60px solid transparent;
+            border-top:60px solid #FC0;
+            border-left:60px solid #FC0;
+            border-bottom:60px solid #FC0;
+            border-top-left-radius:60px;
+            border-top-right-radius:60px;
+            border-bottom-left-radius:60px;
+            border-bottom-right-radius:60px;
+        }
+        .yin-yang {
+            width:96px;
+            height:48px;
+            background:#fff;
+            border-color:#000;
+            border-style:solid;
+            border-width:2px 2px 50px 2px;
+            border-radius:100%;
+            position:relative;
+        }
+        .yin-yang:before {
+            content:&quot;&quot;;
+            position:absolute;
+            top:50%;
+            left:0;
+            background:#fff;
+            border:18px solid #000;
+            border-radius:100%;
+            width:12px;
+            height:12px;
+        }
+        .yin-yang:after {
+            content:&quot;&quot;;
+            position:absolute;
+            top:50%;
+            left:50%;
+            background:#000;
+            border:18px solid #fff;
+            border-radius:100%;
+            width:12px;
+            height:12px;
+        }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:30px; left:40px;&quot;&gt;
+        &lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:20px; left:100px;&quot;&gt;
+        &lt;div class=&quot;star-six&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:20px; left:200px;&quot;&gt;
+        &lt;div class=&quot;star-five&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:20px; left:400px;&quot;&gt;
+        &lt;div class=&quot;heart&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:220px; left:100px;&quot;&gt;
+        &lt;div class=&quot;infinity&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:220px; left:400px;&quot;&gt;
+        &lt;div class=&quot;pacman&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrap&quot; style=&quot;top:340px; left:200px;&quot;&gt;
+        &lt;div class=&quot;yin-yang&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix" style="position: relative;">
+<div class="dashang">
+	<div><a href="###">如果觉得不错，赏我一个么么哒吧！</a></div>
+	<div><a href="###">(づ￣ 3￣)づ</a></div>
+	<div class="weixin-box" id="shang">
+		<span class="weixin" title="微信么么哒"></span>
+		<span class="zhifu" title="支付宝么么哒"></span>
+	</div>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/skill/">skill</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2017/02/12/CSS绘图，实现一些特殊形状/" data-title="CSS绘图，实现一些特殊形状 | FoxSnower" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/05/20/CSS常用背景图片定位方法/" title="CSS常用背景图片定位方法">
+  <strong>上一篇</strong><br/>
+  <span>
+  CSS常用背景图片定位方法</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/10/Js控制CSS样式表的语法对照/"  title="JS 控制CSS样式表的语法对照">
+ <strong>下一篇</strong><br/> 
+ <span>JS 控制CSS样式表的语法对照
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="CSS绘图，实现一些特殊形状" data-thread-key="CSS绘图，实现一些特殊形状" data-author-key="Fox Snower" data-url="http://yoursite.com/post/CSS绘图，实现一些特殊形状"></div>
+	
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+<!-- 
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+ -->
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		
+		
+		<a href="https://github.com/foxSnower" target="_blank" title="github"></a>
+		
+		
+		
+		<a href="https://zhihu.com/people/foxsnower" target="_blank" title="zhihu"></a>
+		
+	</div>
+</div>
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017 年 09 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017 年 08 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017 年 07 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017 年 06 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">2017 年 05 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2017 年 02 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">2017 年 01 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016 年 11 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">2016 年 10 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">2016 年 08 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">2016 年 04 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016 年 03 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015 年 11 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015 年 05 月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">2015 年 03 月</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>4</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Js/" title="Js">Js<sup>9</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Node/" title="Node">Node<sup>1</sup></a></li>
+		
+			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Sublime/" title="Sublime">Sublime<sup>2</sup></a></li>
+		
+			<li><a href="/tags/VUE/" title="VUE">VUE<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/weex/" title="weex">weex<sup>1</sup></a></li>
+		
+			<li><a href="/tags/二维码/" title="二维码">二维码<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片/" title="图片">图片<sup>2</sup></a></li>
+		
+			<li><a href="/tags/地图/" title="地图">地图<sup>1</sup></a></li>
+		
+			<li><a href="/tags/微信/" title="微信">微信<sup>1</sup></a></li>
+		
+			<li><a href="/tags/日期/" title="日期">日期<sup>1</sup></a></li>
+		
+			<li><a href="/tags/生活趣事/" title="生活趣事">生活趣事<sup>3</sup></a></li>
+		
+			<li><a href="/tags/自适应/" title="自适应">自适应<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">我的收藏</p>
+    <ul>
+      <li><a href="https://chuhanan.github.io/ " target="_blank" title="Hexo">夏木南生</a></li>
+      <li><a href="https://ltaoo.github.io/" target="_blank" title="coney">ltaoo's web</a></li>
+      <li><a href="https://www.nowcoder.com/ " target="_blank" title="Hexo">牛客网</a></li>
+      <li><a href="http://www.imooc.com/ " target="_blank" title="Hexo">慕课网</a></li>
+      <li><a href="http://www.hubwiz.com/ " target="_blank" title="Hexo">汇智网</a></li>
+      <li><a href="http://www.miaov.com/ " target="_blank" title="Hexo">妙趣课堂</a></li>
+      <li><a href="https://hexo.io/zh-cn/ " target="_blank" title="Hexo">Hexo 文档</a></li>
+      <li><a href="https://mp.weixin.qq.com/wiki/home/index.html " target="_blank" title="Hexo">微信公众平台开发文档</a></li>
+      <li><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" title="coney">React 入门实例教程</a></li>
+      <li><a href="http://es6.ruanyifeng.com/#docs/module " target="_blank" title="Hexo">ECMAScript 6 入门</a></li>
+      <li><a href="http://jqweui.com/ " target="_blank" title="Hexo">jQuery WeUI</a></li>
+      <li><a href="https://segmentfault.com/a/1190000003728094 " target="_blank" title="Hexo">使用git和github管理自己的项目---基础操作学习</a></li>
+      <li><a href="http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html " target="_blank" title="Hexo">给电脑换源 npm 国内镜像 cnpm</a></li>
+      <li><a href="https://www.zhihu.com/question/20070065/answer/79557687 " target="_blank" title="Hexo">怎样使用 GitHub</a></li>
+      <li><a href="https://www.juhe.cn/ " target="_blank" title="Hexo">聚合数据</a></li>
+      <li><a href="https://www.duitang.com/category/?cat=chinoiserie " target="_blank" title="Hexo">堆糖古风</a></li>
+      
+      <li><a href="http://2013.miaov.com/student/ldd/cool.html# " target="_blank" title="Hexo">简历</a></li>
+      <li><a href="https://shop114109558.taobao.com/ " target="_blank" title="Hexo">Cat 妖精时尚坊</a></li>
+      <li><a href="https://github.com/foxSnower" target="_blank" title="Hexo">foxSnower's github</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="Fox Snower">Fox Snower</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside'),
+      t = $('#toc');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+
+  function getDivSize(){
+    if(t.height()>=550){
+        t.css('padding','1em 0 1em 0');
+        $('.hide-scroll').css({'right':'-16px','overflow-y':'auto'});
+     }
+  }
+  getDivSize();
+  $(window).scroll(function(){
+    if($(document).scrollTop()>500){
+     t.css({'position':'fixed','left': '71%'});
+    }else if($(document).scrollTop()>=300&&$(document).scrollTop()<=500){ 
+      t.css({'position':'initial','left': '51%'});     
+    }
+   })
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+

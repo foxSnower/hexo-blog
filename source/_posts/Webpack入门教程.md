@@ -4,6 +4,7 @@ title: Webpack 入门教程
 keywords:  Webpack 入门教程
 tags: Webpack
 categories: skill
+date: 2016-03-20
 ---
 
 目前，我正在学习用webpack搭建React-Native的环境，在众多的学习过程中，发现这个时期的代码更新速度非常的快，而且学习资料也有很多渐渐过时，而我，不得不在这些（旧）教程中掺杂着最新技术开始我漫长的埋坑之旅。

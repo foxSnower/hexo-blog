@@ -6,6 +6,7 @@ tags:
 - Js
 - 图片
 categories: note
+date: 2016-04-28
 ---
 
 # 背景图片加载失败时替换图片

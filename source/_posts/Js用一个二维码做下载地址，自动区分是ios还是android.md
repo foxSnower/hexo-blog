@@ -5,6 +5,7 @@ tags:
 - 二维码
 - Js
 categories: skill
+date: 2017-08-26
 ---
 
 用一个二维码做下载地址，自动区分是 ios 还是 android, 甚至区分 iphone  和 ipad。
