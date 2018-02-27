@@ -28,7 +28,8 @@ keywords: 个人简历 Web前端 开发工程师
 |Web前端开发工程师|1.事件申报</br>2.雷诺微信</br>3.易&nbsp;&nbsp;租&nbsp;&nbsp;车</br>4.风神物流| 负责微信公众号的前端页面设计及开发、JS、CSS代码优化压缩,H5、CSS3动画效果实现,用户体验优化，用到的框架有FrozenUI、WeUI|
 ||5.雷诺微信|雷诺微信后台管理系统，利用前端热门框架Bootstrap开发前端页面，用户体验优化|
 ||6.车主APP|原用Framework7前端UI框架开发前端页面，生成混合APP，后改用React-Native开发，生成原生APP|
-||7.智通车商|vue+node快速搭建开发环境，并进行组件式开发,用到的知识有，Vue、Vuex、Vue-Router、Axios|
+||7.智通车商|vue+node快速搭建开发环境，并进行组件式开发,用到的知识有，Vue、Vuex、Vue-Router、Axios、less|
+||8.战绩速报|vue+node快速搭建开发环境，并进行组件式开发,用到的知识有，Vue、Vuex、Vue-Router、Axios、less、Echarts |
 
 
 </br>
@@ -48,7 +49,7 @@ keywords: 个人简历 Web前端 开发工程师
 *   1.掌握HTML5+CSS3+Js等基本语言
 *   2.熟悉React.js，Vue.js等主流的前端框架
 *   3.了解ES6，Node.js，Webpack前端模块构建工具等
-*   4.了解 Oracle、MongoDB等数据库
+*   4.了解Oracle、MongoDB等数据库
 *   5.熟悉HTML5+CSS3+实现语义化布局
 *   6.熟悉响应式布局与自适应布局，了解less&scss，了解CSS3动画
 *   7.掌握主流的前端框架、性能优化技术，熟悉前端工程化
