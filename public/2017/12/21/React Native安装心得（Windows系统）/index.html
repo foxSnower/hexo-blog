@@ -7,17 +7,14 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>引进外部字体or图标 | FoxSnower</title>
+    <title>React Native安装心得（Windows系统） | FoxSnower</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Fox Snower">
     
-    <meta name="description" content="引进外部字体@font-face {
-    font-family: &amp;apos;iconfont&amp;apos;;
-    src: url(&amp;apos;iconfont.eot&amp;apos;); /* IE9*/
-    src: url(&amp;apos;iconfont.eot?#iefix&amp;apos">
+    <meta name="description" content="安装完yarn之后就可以用yarn代替npm了，例如用yarn代替npm install命令，用yarn add 某第三方库名代替npm install –save 某第三方库名。">
     
-    <meta name="keywords" content="引进字体 图标 CSS">
+    <meta name="keywords" content="React Native 组件 生命周期">
     
     
     <link rel="alternate" href="atom.xml" title="FoxSnower" type="application/atom+xml">
@@ -80,15 +77,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/11/20/CSS引进外部字体or图标/" title="引进外部字体or图标" itemprop="url">引进外部字体or图标</a>
+      <a href="/2017/12/21/React Native安装心得（Windows系统）/" title="React Native安装心得（Windows系统）" itemprop="url">React Native安装心得（Windows系统）</a>
   </h1>
   <p class="article-author">By
     
       <a href="###" title="Fox Snower">Fox Snower</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-11-19T16:00:00.000Z" itemprop="datePublished">2016-11-20</time>
-    更新日期:<time datetime="2017-05-25T02:20:22.153Z" itemprop="dateModified">2017-05-25</time>
+    <time datetime="2017-12-20T16:00:00.000Z" itemprop="datePublished">2017-12-21</time>
+    更新日期:<time datetime="2017-12-21T08:30:55.987Z" itemprop="dateModified">2017-12-21</time>
     
   </p>
 </header>
@@ -99,49 +96,12 @@
             <div class="hide-scroll">
 			<strong class="toc-title">文章目录</strong>
 
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引进外部字体"><span class="toc-number">1.</span> <span class="toc-text">引进外部字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引进外部图标"><span class="toc-number">2.</span> <span class="toc-text">引进外部图标</span></a></li></ol>
+		
 		</div>
 		</div>
 		
-		<h3 id="引进外部字体"><a href="#引进外部字体" class="headerlink" title="引进外部字体"></a>引进外部字体</h3><pre><code>@font-face {
-    font-family: &apos;iconfont&apos;;
-    src: url(&apos;iconfont.eot&apos;); /* IE9*/
-    src: url(&apos;iconfont.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */
-    url(&apos;iconfont.woff&apos;) format(&apos;woff&apos;), /* chrome、firefox */
-    url(&apos;iconfont.ttf&apos;) format(&apos;truetype&apos;), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url(&apos;iconfont.svg#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */
-}
-
-
-font-family:&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,&quot;WenQuanYi Micro Hei&quot;,SimSun,Tahoma,Arial,Helvetica,STHeiti;
-</code></pre><h3 id="引进外部图标"><a href="#引进外部图标" class="headerlink" title="引进外部图标"></a>引进外部图标</h3><pre><code>/*图标字体*/
-
-@font-face {
-  font-family: &apos;fontello&apos;;
-  src: url(&apos;font/fontello.eot&apos;);
-  src: url(&apos;font/fontello.eot#iefix&apos;) format(&apos;embedded-opentype&apos;),
-       url(&apos;font/fontello.woff&apos;) format(&apos;woff&apos;),
-       url(&apos;font/fontello.ttf&apos;) format(&apos;truetype&apos;),
-       url(&apos;font/fontello.svg#fontello&apos;) format(&apos;svg&apos;);
-  font-weight: normal;
-  font-style: normal;
-}
-.ficon,[class^=&quot;ficon-&quot;],[class^=&quot;ficon-&quot;]:before,[class*=&quot; ficon-&quot;]:before {
-  font-family: &quot;fontello&quot;;
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  margin-left: .2em;
-}
-</code></pre>  
+		<p>安装完yarn之后就可以用yarn代替npm了，例如用yarn代替npm install命令，用yarn add 某第三方库名代替npm install –save 某第三方库名。</p>
+  
 	</div>
 		<footer class="article-footer clearfix" style="position: relative;">
 <div class="dashang">
@@ -156,20 +116,20 @@ font-family:&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,&quot;WenQu
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS/">CSS</a>
+  <span></span> <a href="/tags/React/">React</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/note/">note</a>
+  <a class="article-category-link" href="/categories/skill/">skill</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/11/20/CSS引进外部字体or图标/" data-title="引进外部字体or图标 | FoxSnower" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2017/12/21/React Native安装心得（Windows系统）/" data-title="React Native安装心得（Windows系统） | FoxSnower" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -179,19 +139,11 @@ font-family:&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,&quot;WenQu
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/28/Js地图定位到当前城市/" title="地图定位到当前城市">
-  <strong>上一篇</strong><br/>
-  <span>
-  地图定位到当前城市</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/11/02/Js长按事件/"  title="长按事件">
+<a href="/2017/11/28/快速把自己的项目上传到github/"  title="快速把自己的项目上传到github">
  <strong>下一篇</strong><br/> 
- <span>长按事件
+ <span>快速把自己的项目上传到github
 </span>
 </a>
 </div>
@@ -201,7 +153,7 @@ font-family:&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,&quot;WenQu
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="引进外部字体or图标" data-thread-key="CSS引进外部字体or图标" data-author-key="Fox Snower" data-url="http://yoursite.com/post/CSS引进外部字体or图标"></div>
+	<div class="ds-thread" data-title="React Native安装心得（Windows系统）" data-thread-key="React Native安装心得（Windows系统）" data-author-key="Fox Snower" data-url="http://yoursite.com/post/React Native安装心得（Windows系统）"></div>
 	
 </section>
 
@@ -211,7 +163,7 @@ font-family:&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,&quot;WenQu
 <!-- 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引进外部字体"><span class="toc-number">1.</span> <span class="toc-text">引进外部字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引进外部图标"><span class="toc-number">2.</span> <span class="toc-text">引进外部图标</span></a></li></ol>
+  
   </div>
  -->
 <div id="asidepart">
