@@ -89,4 +89,26 @@ git commit --amend
 1.`git pull` github的代码同步至本地
 2.`git push origin master`本地代码同步至github中
 
+三、 gh-page设置
+
+一个github上只能拥有一个站点，比如我的站点是foxsnower.github.io,那么我其他想展示的分页就要分支在主页下面，
+链接地址为：foxsnower.github.io/项目名
+
+* 新建独立分支gh-pages
+
+	git checkout --orphan gh-pages
+
+* 删除暂存区内容（已有内容忽略）
+
+	git rm -rf .
+
+* 增加项目内容（已有内容忽略）
+
+	echo "project home page" > index.html
+
+* 提交
+
+	git add .
+	git commit -m "gh-pages first commit"
+	git push origin gh-pages
 
