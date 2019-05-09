@@ -6,19 +6,24 @@ categories: skill
 date: 2016-03-20
 ---
 
-# clean
+# 安装
+
+      npm install -g hexo-cli
+
+
+### 清除缓存文件 (db.json) 和已生成的静态文件 (public)。
 
       $ hexo clean
 
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。
+### 建工程项目
 
       $ hexo g
 
-建工程项目
+### 生成静态文件
 
       $ hexo d
 
-上传github
+### 本地运行预览
 
       $ hexo s
-运行
+
